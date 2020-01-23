@@ -47,11 +47,11 @@ io.on('connection', (socket) => {
     socket.on('getCurrentGantt', (data) => {
         gantt = getGanttFromMongoose();
         io.sockets.emit('currentGantt', { gantt: gantt });
-    })
+    });
     socket.on('setCurrentGantt', (data) => {
         setGanttOnMongoose(data);
-    }))
-})
+    });
+});
 
 let client = socket.connect('http://51.15.137.122:18000/', { reconnect: true });
 client.on('connect', () => {
